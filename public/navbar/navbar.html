@@ -1,0 +1,36 @@
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+				<span class="sr-only">Toggle Navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Demo</a>
+		</div>
+
+		<div class="collapse navbar-collapse" id="navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="/home">Home</a>
+				</li>
+				<li ng-if="currentUser.role == 'admin'">
+					<a href="/users/list">Users</a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ currentUser.name }}<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="/posts/form">New post</a></li>
+						<li><a href="/posts/user/{{ currentUser.id }}">My Posts</a></li>
+						<li><a href="/users/profile/{{ currentUser.id }}">My Profile</a></li>
+						<li ng-click="logout()"><a href="#">Logout
+						</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>

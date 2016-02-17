@@ -1,0 +1,63 @@
+<div class="container">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="well">
+			<div class="blog-title" ng-if="!edit">New User</div>
+			<div class="blog-title" ng-if="edit">Edit User</div>
+			<div class=" col-xs-12 alert alert-success" ng-show="userArray.message">
+                <a href="#" class="close" ng-click="userArray.message = !userArray.message">&times;</a>
+                <strong>Success!</strong>
+            </div>
+            <div class=" col-xs-12 alert alert-danger" ng-show="userArray.error">
+                <a href="#" class="close" ng-click="userArray.error = !userArray.error">&times;</a>
+                <strong>Failed!</strong>
+            </div>
+			<form class="form-horizontal" role="form">
+				<div class="form-group">
+					<label class="col-md-4 control-label">Name</label>
+					<div class="col-md-6">
+						<input type="text" class="form-control" name="name" ng-model="user.name" placeholder="Enter Name" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">E-Mail Address</label>
+					<div class="col-md-6">
+						<input type="email" class="form-control" name="email" ng-model="user.email" placeholder="Enter Email" required>
+					</div>
+				</div>
+
+				<div class="form-group" ng-if="!edit">
+					<label class="col-md-4 control-label">Password</label>
+					<div class="col-md-6">
+						<input type="password" class="form-control" name="password" ng-model="user.password" placeholder="Enter Password" required>
+					</div>
+				</div>
+
+				<div class="form-group" ng-if="!edit">
+					<label class="col-md-4 control-label">Confirm Password</label>
+					<div class="col-md-6">
+						<input type="password" class="form-control" name="password_confirm" ng-model="user.password_confirm" placeholder="Confirm Password" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Role</label>
+					<div class="col-md-6">
+						<select class="form-control" ng-model="user.role">
+					        <option>admin</option>
+					        <option>author</option>
+				    	</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-md-6 col-md-offset-4">
+						<button class="btn btn-primary" ng-click="save(user.id)">
+							Save
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

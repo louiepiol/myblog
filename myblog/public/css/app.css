@@ -1,9 +1,0 @@
-@import '../auth/auth.css';
-@import '../post/list/post.css';
-body {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #333333;
-  background-color: #ffffff;
-}

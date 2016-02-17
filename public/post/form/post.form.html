@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="col-sm-8 col-sm-offset-2">
+		<div class="well">
+			<div class="blog-title" ng-if="!setPost.form && !setPost.new">Posts</div>
+			<div class="blog-title" ng-if="!setPost.new && setPost.form">Edit Post</div>
+			<div class="blog-title" ng-if="setPost.new">New Post</div>
+			<div class=" col-xs-12 alert alert-success" ng-show="setPost.message">
+                <a href="#" class="close" ng-click="setPost.message = !setPost.message">&times;</a>
+                <strong>Success!</strong>
+            </div>
+            <div class=" col-xs-12 alert alert-danger" ng-show="setPost.error">
+                <a href="#" class="close" ng-click="setPost.error = !setPost.error">&times;</a>
+                <strong>Failed!</strong>
+            </div>
+			<div ng-if="setPost.form">
+				<input required="required" placeholder="Enter title here" type="text" name = "title" class="form-control" ng-model="post.title"/>
+				<textarea ui-tinymce="tinymceOptions" ng-model="post.body"></textarea>
+				<button class="btn btn-primary" style="margin: 10px auto" ng-click="save(post.id)">Save</button>
+			</div>
+			<div ng-if="!setPost.form">
+				<div class="list-group">
+					<div class="list-group-item">
+						<p><h3>{{post.title}}</h3></p>
+						<p>{{post.created_at | myDate}} By  <a href="/users/{{ post.author.id }}">{{post.author.name}}</a></p>
+					</div>
+					<div class="list-group-item">
+						<div ng-bind-html="post.body | unsafe"></div>
+					</div>
+					<button class="btn btn-primary" style="margin: 10px auto" ng-if="isAuthor" ng-click="edit()">Edit</button>
+					<button class="btn btn-danger" style="margin: 10px auto" ng-if="isAuthor" ng-click="delete(post.id)">Delete</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

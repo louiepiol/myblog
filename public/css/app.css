@@ -1,0 +1,17 @@
+@import '../auth/auth.css';
+@import '../post/list/post.css';
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333333;
+  background-color: #ffffff;
+}
+.blog-title {
+    padding: 10px 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    font-size: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px 5px 0px 0px;
+}
